@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>If_else</title>
+</head>
+<body>
+	<script>
+		/*Перепишите if с использованием оператора '?':
+			if (a + b < 4) {
+			  result = 'Мало';
+			} else {
+			  result = 'Много';
+			}
+		*/
+		var result;
+		var a = 5;
+		var b = 8;
+		result = (a+b < 4) ? "Мало" : "Много";
+		console.log(result);
+	</script>
+	<script>
+		/*Перепишите if..else с использованием нескольких операторов '?'
+			var message;
+
+			if (login == 'Вася') {
+			  message = 'Привет';
+			} else if (login == 'Директор') {
+			  message = 'Здравствуйте';
+			} else if (login == '') {
+			  message = 'Нет логина';
+			} else {
+			  message = '';
+			}
+		*/
+		var message;
+		var login = '';
+		message = (login == 'Вася') ? 'Привет' : (login == 'Директор') ? 'Здравствуйте' : (login == '') ? 'Нет логина' : '';
+		console.log(message);
+	</script>
+</body>
+</html>
