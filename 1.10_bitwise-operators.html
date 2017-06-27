@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Bitwise operators</title>
+</head>
+<body>
+	<script>
+		//функция isInteger(num), которая возвращает true, если num – целое число, иначе false
+		function isInteger(num) {
+			if (num ^ 0 == num) {
+				console.log('integer');
+				return true;
+			}
+			else {
+				console.log('not integer');
+				return false;
+			}
+		}
+		isInteger(0.5);
+		isInteger(2);
+	</script>
+</body>
+</html>
