@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Numbers</title>
+</head>
+<body>
+	<script>
+		// Создайте страницу, которая предлагает ввести два числа и выводит их сумму.
+		// P.S. Есть «подводный камень» при работе с типами.
+
+		var a = +prompt("Введите первое число", '');
+		var b = +prompt("Введите второе число", '');
+		alert(+(a+b).toFixed(10));
+	</script>
+	<script>
+		/*
+			Напишите функцию getDecimal(num), которая возвращает десятичную часть числа:
+
+			alert( getDecimal(12.345) ); // 0.345
+			alert( getDecimal(1.2) ); // 0.2
+			alert( getDecimal(-1.2) ); // 0.2
+		*/
+		 function getDecimal(num) {
+			if (num >= 0) {
+				var res = num - Math.floor(num);
+				return +res.toFixed(10);
+			}
+			else {
+				var res = Math.ceil(num) - num;
+				return +res.toFixed(10);
+			}
+		}
+		alert(getDecimal(-1.2));
+	</script>
+
+	<script>
+		/*
+			Последовательность чисел Фибоначчи имеет формулу Fn = Fn-1 + Fn-2. То есть, следующее число получается как сумма двух предыдущих.
+
+			Первые два числа равны 1, затем 2(1+1), затем 3(1+2), 5(2+3) и так далее: 1, 1, 2, 3, 5, 8, 13, 21....
+			Существует формула Бине, согласно которой Fn равно ближайшему целому для ϕn/√5, где ϕ=(1+√5)/2 – золотое сечение.
+
+			Напишите функцию fibBinet(n), которая будет вычислять Fn, используя эту формулу. Проверьте её для значения F77 (должно получиться fibBinet(77) = 5527939700884757).
+		*/
+		function fibBinet(n) {
+			console.log(Math.pow((1+Math.sqrt(5))/2, n)/Math.sqrt(5));
+			return Math.pow((1+Math.sqrt(5))/2, n)/Math.sqrt(5);
+		}
+		alert(fibBinet(77));
+
+	</script>
+
+	<script>
+		/*
+			Напишите код для генерации случайного значения в диапазоне от 0 до max, не включая max.
+		*/
+		function max(max){
+			return (Math.random()*max).toFixed(2);
+		}
+		console.log(max(5));
+
+		//Напишите код для генерации случайного числа от min до max, не включая max.
+		function min_max(min, max){
+			return (min + Math.random()*(max-min)).toFixed(2);
+		}
+		console.log(min_max(5,8));
+
+		/*Напишите функцию randomInteger(min, max) для генерации случайного целого числа между min и max, включая min,max как возможные значения.
+
+		Любое число из интервала min..max должно иметь одинаковую вероятность. */
+
+		function randomInteger(min, max){
+			var res = min + Math.random()*(max + 1 - min);
+			res = Math.floor(res);
+			return res;
+		}
+		console.log(randomInteger(10, 13));
+	</script>
+</body>
+</html>
