@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>String</title>
+</head>
+<body>
+	<script>
+		/*
+			Напишите функцию ucFirst(str), которая возвращает строку str с заглавным первым символом, например:
+
+			ucFirst("вася") == "Вася";
+			ucFirst("") == ""; // нет ошибок при пустой строке
+		*/
+		function ucFirst(str) {
+			var transform = str.charAt(0);
+			transform = transform.toUpperCase();
+			str = transform + str.slice(1);
+			return str;
+		}
+		alert(ucFirst("вася"));
+	</script>
+
+	<script>
+		/*
+			Напишите функцию checkSpam(str), которая возвращает true, если строка str содержит „viagra“ или „XXX“, а иначе false.
+
+			Функция должна быть нечувствительна к регистру:
+
+			checkSpam('buy ViAgRA now') == true
+			checkSpam('free xxxxx') == true
+			checkSpam("innocent rabbit") == false
+		*/
+		function checkSpam(str){
+			first = str.match(/viagra/i);
+			second = str.match(/xxx/i);
+			if (str.indexOf(first) != -1 || str.indexOf(second) != -1) {
+				return true
+			}
+			else {
+				return false;
+			}
+		}
+		alert(checkSpam('xXx'));
+	</script>
+
+	<script>
+		/*
+			Создайте функцию truncate(str, maxlength), которая проверяет длину строки str, и если она превосходит maxlength – заменяет конец str на "...", так чтобы ее длина стала равна maxlength.
+
+			Результатом функции должна быть (при необходимости) усечённая строка.
+
+			Например:
+
+			truncate("Вот, что мне хотелось бы сказать на эту тему:", 20) = "Вот, что мне хоте..."
+
+			truncate("Всем привет!", 20) = "Всем привет!"
+			Эта функция имеет применение в жизни. Она используется, чтобы усекать слишком длинные темы сообщений.
+		*/
+
+		function truncate(str, maxLength) {
+			var length = str.length;
+			if(length > maxLength) {
+				str = str.slice(0, maxLength - 3) + "...";
+			}
+			return str;
+		}
+		alert(truncate("Вот, что мне хотелось бы сказать на эту тему:", 20));
+	</script>
+
+	<script>
+		/*
+			Есть стоимость в виде строки: "$120". То есть, первым идёт знак валюты, а затем – число.
+
+			Создайте функцию extractCurrencyValue(str), которая будет из такой строки выделять число-значение, в данном случае 120.
+		*/
+		function extractCurrencyValue(str){
+			str = +str.slice(1);
+			return str;
+		}
+		alert(extractCurrencyValue("$120"));
+	</script>
+</body>
+</html>
